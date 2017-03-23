@@ -7,14 +7,17 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="stylesheet/styles.css">
+	<style>
+			form :invalid :focus :required {
+				border-color: red;
+			}
+	</style>
 </head>
 
 <body class="container">
 	<header>
 		<h1>Coffee Run</h1>
 	</header>
-
-
 
 	<section>
 		<div class="panel panel-default">
@@ -23,10 +26,9 @@
 
 					<div class="form-group">
 						<label for="coffeeOrder">Coffee Order</label>
-						<input type="text" class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+" />
+						<input type="text" class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+" >
 					</div>
 					<!-- Coffee Type -->
-
 
 					<div class="form-group">
 						<label for="emailInput">Email</label>
@@ -81,8 +83,6 @@
 					<div class="form-group col-sm-12">
 						<label for="strengthLevel">Caffeine Rating</label>
 						<input name="strength" type="range" min="0" max="100" value="30" id="strengthLevel" data-coffee="rate">
-
-
 					</div>
 					<!-- Caffeine rating range -->
 
