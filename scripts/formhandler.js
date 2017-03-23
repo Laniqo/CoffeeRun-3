@@ -64,8 +64,8 @@
 
 
 
-      //coffee order handler
-      this.$formElement.on('input change', '[name="coffee"]', function(event) {
+        //coffee order handler
+        this.$formElement.on('input change', '[name="coffee"]', function(event) {
             order = event.target.value;
             //val = $('#strengthLevel').val();
 
@@ -75,37 +75,35 @@
             if (fn(order, val)) {
                 msg = 'Cannot have an order of ' + order + ' with strength ' + val;
                 event.target.setCustomValidity(msg);
-            }
-            else {
+            } else {
                 event.target.setCustomValidity('');
             }
         });
 
-        this.$formElement.on('input change', '#strengthLevel', function(event){
-                event.preventDefault();
-                val = event.target.value;
-                console.log(val);
+        this.$formElement.on('input change', '#strengthLevel', function(event) {
+            event.preventDefault();
+            val = event.target.value;
+            console.log(val);
 
-                if (fn(order, val)) {
-                    msg = 'Cannot have an order of ' + order + ' with strength ' + val;
-                    $('[name="coffee"]').get(0).setCustomValidity(msg);
-                }
-                else {
-                    $('[name="coffee"]').get(0).setCustomValidity('');
-                }
+            if (fn(order, val)) {
+                msg = 'Cannot have an order of ' + order + ' with strength ' + val;
+                $('[name="coffee"]').get(0).setCustomValidity(msg);
+            } else {
+                $('[name="coffee"]').get(0).setCustomValidity('');
+            }
 
-              });
+        });
 
     }
 
     //coffee strength handler
-  FormHandler.prototype.coffeeRangeHandler = function(){
-    this.$formElement.on('input change', '#strengthLevel', function(event){
-        event.preventDefault();
-        //console.log($(this).val());
+    FormHandler.prototype.coffeeRangeHandler = function() {
+        this.$formElement.on('input change', '#strengthLevel', function(event) {
+            event.preventDefault();
+            //console.log($(this).val());
 
-    });
-  }
+        });
+    }
 
     App.FormHandler = FormHandler;
     window.App = App;
