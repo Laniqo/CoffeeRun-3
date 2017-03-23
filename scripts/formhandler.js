@@ -31,14 +31,10 @@
             });
 
             console.log(data);
+
             fn(data);
 
             this.reset();
-            $('#power-ups').css('display', 'none');
-            $(".cbox").attr("checked", false);
-            $('#num').html('30');
-            $('#num').css('background-color', 'green');
-
 
             this.elements[0].focus();
 
@@ -60,6 +56,49 @@
         });
     }
 
+
+
+    FormHandler.prototype.coffeeOrderHandler = function(fn) {
+
+        var order;
+        var msg = '';
+        var val = 0;
+
+      this.$formElement.on('input', '[name="coffee"]', function(event) {
+            order = event.target.value;
+            
+
+            this.$formElement.on('input change', '#strengthLevel', function(event) {
+                  val = $(this).val();
+               });
+
+            console.log(order);
+            console.log(val);
+
+            if (fn(order, val)) {
+                msg = 'Cannot have an order of ' + order + ' with strength ' + val;
+                event.target.setCustomValidity(msg);
+            } else {
+                event.target.setCustomValidity('');
+                
+            }
+        }.bind(this));
+
+
+    }
+
+
+    /*    FormHandler.prototype.coffeeRangeHandler = function(fn){
+
+
+          this.$formElement.on('input change', '#strengthLevel', function(event) {
+                     event.preventDefault();
+                      fn($(this).val());
+                   });
+
+        }
+
+    */
     App.FormHandler = FormHandler;
     window.App = App;
 

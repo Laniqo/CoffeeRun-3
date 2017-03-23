@@ -26,5 +26,6 @@
     //console.log(formHandler);
 
     formHandler.addInputHandler(Validation.isCompanyEmail);
-
+    formHandler.coffeeOrderHandler(Validation.decafValidation);
+    //formHandler.coffeeRangeHandler(Validation.rangeValidation);
 })(window);

@@ -5,11 +5,35 @@
     var Validation = {
         isCompanyEmail: function(email) {
             return /.+@csu\.student$/.test(email);
+        },
+
+        //if str has 'decaf' and num is greater than 20
+        // return false
+        decafValidation: function(str, num) {
+            if (/\bdecaf\b/.test(str)) {
+                console.log('decaf is found');
+                if(num < 20){
+                  return false;
+                }
+                else {
+                    return true;
+                  }
+            }
         }
+
+      /*  rangeValidation: function(num){
+          if(num < 20){
+            return false;
+          }
+          else {
+            {
+              return true;
+            }
+          }
+        }*/
     };
+    //^.(\bdecaf\b)?.$
 
     App.Validation = Validation;
     window.App = App;
-
-
 })(window);
