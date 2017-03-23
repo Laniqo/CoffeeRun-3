@@ -61,10 +61,13 @@
         var msg = '';
         var val;
 
+
+
+
       //coffee order handler
-      this.$formElement.on('input', '[name="coffee"]', function(event) {
+      this.$formElement.on('input change', '[name="coffee"]', function(event) {
             order = event.target.value;
-            val = $('#strengthLevel').val();
+            //val = $('#strengthLevel').val();
 
             console.log(order);
             console.log(val);
@@ -77,17 +80,29 @@
                 event.target.setCustomValidity('');
             }
         });
+
+        this.$formElement.on('input change', '#strengthLevel', function(event){
+                event.preventDefault();
+                val = event.target.value;
+                console.log(val);
+
+                if (fn(order, val)) {
+                    msg = 'Cannot have an order of ' + order + ' with strength ' + val;
+                    $('[name="coffee"]').get(0).setCustomValidity(msg);
+                }
+                else {
+                    $('[name="coffee"]').get(0).setCustomValidity('');
+                }
+
+              });
+
     }
 
     //coffee strength handler
   FormHandler.prototype.coffeeRangeHandler = function(){
     this.$formElement.on('input change', '#strengthLevel', function(event){
         event.preventDefault();
-        var strengthVal;
-
-        console.log($(this).val());
-
-
+        //console.log($(this).val());
 
     });
   }
