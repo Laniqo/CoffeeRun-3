@@ -21,18 +21,8 @@
             }
         }
 
-      /*  rangeValidation: function(num){
-          if(num < 20){
-            return false;
-          }
-          else {
-            {
-              return true;
-            }
-          }
-        }*/
     };
-    //^.(\bdecaf\b)?.$
+
 
     App.Validation = Validation;
     window.App = App;

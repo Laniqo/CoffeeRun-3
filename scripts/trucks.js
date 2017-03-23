@@ -24,7 +24,7 @@
     //removes item from db using custeomer's email add
     //customerId = emailAddress
     Truck.prototype.deliverOrder = function(customerId) {
-        console.log('Delivering order for' + customerId);
+        console.log('Delivering order for ' + customerId);
         this.db.remove(customerId);
     };
 

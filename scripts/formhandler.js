@@ -20,7 +20,6 @@
         console.log('Setting submit handler for form');
         //More code to go here
 
-
         this.$formElement.on('submit', function(event) {
             event.preventDefault();
 
@@ -56,21 +55,17 @@
         });
     }
 
-
-
     FormHandler.prototype.coffeeOrderHandler = function(fn) {
 
         var order;
         var msg = '';
-        var val = 0;
+        
 
+
+      //coffee order handler
       this.$formElement.on('input', '[name="coffee"]', function(event) {
             order = event.target.value;
-            
-
-            this.$formElement.on('input change', '#strengthLevel', function(event) {
-                  val = $(this).val();
-               });
+            var val = $('#strengthLevel').val();
 
             console.log(order);
             console.log(val);
@@ -78,17 +73,15 @@
             if (fn(order, val)) {
                 msg = 'Cannot have an order of ' + order + ' with strength ' + val;
                 event.target.setCustomValidity(msg);
-            } else {
-                event.target.setCustomValidity('');
-                
             }
-        }.bind(this));
-
-
+            else {
+                event.target.setCustomValidity('');
+            }
+        });
     }
 
 
-    /*    FormHandler.prototype.coffeeRangeHandler = function(fn){
+    FormHandler.prototype.coffeeRangeHandler = function(fn){
 
 
           this.$formElement.on('input change', '#strengthLevel', function(event) {
@@ -98,7 +91,7 @@
 
         }
 
-    */
+
     App.FormHandler = FormHandler;
     window.App = App;
 
