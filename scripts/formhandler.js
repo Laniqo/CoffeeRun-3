@@ -44,7 +44,7 @@
         console.log('Setting input handler for form');
         this.$formElement.on('input', '[name="emailAddress"]', function(event) {
             var emailAddress = event.target.value;
-            //console.log(fn(emailAddress));
+
             var message = '';
             if (fn(emailAddress)) {
                 event.target.setCustomValidity('');
@@ -59,8 +59,6 @@
 
         var order;
         var msg = '';
-        
-
 
       //coffee order handler
       this.$formElement.on('input', '[name="coffee"]', function(event) {
@@ -79,18 +77,6 @@
             }
         });
     }
-
-
-    FormHandler.prototype.coffeeRangeHandler = function(fn){
-
-
-          this.$formElement.on('input change', '#strengthLevel', function(event) {
-                     event.preventDefault();
-                      fn($(this).val());
-                   });
-
-        }
-
 
     App.FormHandler = FormHandler;
     window.App = App;
