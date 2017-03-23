@@ -59,11 +59,12 @@
 
         var order;
         var msg = '';
+        var val;
 
       //coffee order handler
       this.$formElement.on('input', '[name="coffee"]', function(event) {
             order = event.target.value;
-            var val = $('#strengthLevel').val();
+            val = $('#strengthLevel').val();
 
             console.log(order);
             console.log(val);
@@ -77,6 +78,19 @@
             }
         });
     }
+
+    //coffee strength handler
+  FormHandler.prototype.coffeeRangeHandler = function(){
+    this.$formElement.on('input change', '#strengthLevel', function(event){
+        event.preventDefault();
+        var strengthVal;
+
+        console.log($(this).val());
+
+
+
+    });
+  }
 
     App.FormHandler = FormHandler;
     window.App = App;
